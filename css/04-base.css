@@ -1,0 +1,60 @@
+/* Encounter Coffee Beans — BASE必須タグ要素のスタイル
+   {LogoTag} {BASEMenuTag} {PageContents} などの見た目を整えます。
+   BASE側が出力するHTMLの構造には依存せず、外側の枠だけを指定しています。 */
+
+/* ===== ヘッダー（ロゴ ＋ カート／BASEメニュー） ===== */
+.base-header{
+  position:relative; z-index:900;
+  display:flex; align-items:center; justify-content:space-between;
+  gap:16px;
+  padding:14px 20px 14px 92px;   /* 左はメニューアイコン(58px)分をよける */
+  border-bottom:1px solid rgba(26,26,26,.25);
+  background:#fff;
+}
+.base-logo img{max-height:40px; width:auto; display:block}
+.base-logo a{
+  color:#1a1a1a; text-decoration:none;
+  font-family:'Shippori Mincho',serif;
+  font-size:16px; letter-spacing:.14em;
+}
+.base-menu{display:flex; align-items:center; gap:12px}
+.base-menu img{max-height:26px; width:auto}
+
+/* PCではサイドバーが左にあるので、アイコン分の余白は不要 */
+@media (min-width:900px){
+  .base-header{padding-left:24px}
+}
+
+/* ===== 各ページのコンテンツ（お問い合わせ・特商法など） ===== */
+.base-page-contents{
+  width:min(760px, 92%);
+  margin:0 auto;
+  padding:70px 0 90px;
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  font-size:13px; line-height:2.1; color:#1a1a1a;
+}
+.base-page-contents:empty{display:none}   /* 該当ページ以外では非表示 */
+.base-page-contents h1,
+.base-page-contents h2,
+.base-page-contents h3{
+  font-family:'Shippori Mincho',serif;
+  letter-spacing:.16em; margin:0 0 18px;
+}
+.base-page-contents a{color:#1a1a1a}
+.base-page-contents table{width:100%; border-collapse:collapse}
+.base-page-contents th,
+.base-page-contents td{
+  border-bottom:1px solid rgba(26,26,26,.25);
+  padding:12px 8px; text-align:left; vertical-align:top;
+}
+
+/* ===== 商品ページ用タグ（注意文・通報） ===== */
+.base-item-tags{
+  width:min(760px, 92%);
+  margin:0 auto;
+  padding:0 0 40px;
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  font-size:11px; line-height:1.9; color:#1a1a1a; opacity:.75;
+}
+.base-item-tags:empty{display:none}
+.base-item-tags a{color:#1a1a1a}
